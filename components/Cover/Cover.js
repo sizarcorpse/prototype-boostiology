@@ -20,6 +20,7 @@ import {
   Grid,
   Box,
   Typography,
+  CssBaseline,
 } from "@material-ui/core";
 
 // #other :
@@ -28,9 +29,9 @@ import { Parallax, Background } from "react-parallax";
 const useStyles = makeStyles({
   parallaxBackground: {
     position: "relative",
+    backgroundPosition: "center",
   },
   coverInfo: {
-    border: "1px solid red",
     width: "100%",
     height: "100%",
     display: "flex",
@@ -57,6 +58,7 @@ const Cover = (props) => {
 
   return (
     <Grid container component="main">
+      <CssBaseline />
       <Grid item xs={12}>
         <Box aria-label="cover-area" width="100%">
           <Parallax bgImage="/cover.jpg" strength={500}>
@@ -89,7 +91,7 @@ const Cover = (props) => {
                     Boostiology <span className={localClasses.span}>Web</span>
                   </SCTypography>
                 </Box>
-                <Box aria-label="boostiology" my={1.5}>
+                <Box aria-label="separator" my={1.5}>
                   <img src="/separatorWhite.png" />
                 </Box>
                 <Box
@@ -105,7 +107,6 @@ const Cover = (props) => {
                 >
                   <SCTypography
                     aria-label="title-main"
-                    className={localClasses.title3}
                     variant="h5"
                     color="white"
                     fontWeight={400}
@@ -115,6 +116,65 @@ const Cover = (props) => {
                     Eat imagine you chiefly few end ferrars compass. Be visitor
                     females am ferrars inquiry. Latter law remark two lively
                     thrown. Spot set they know rest its.
+                  </SCTypography>
+                </Box>
+              </Box>
+            </Box>
+          </Parallax>
+        </Box>
+        <Box aria-label="info-area" width="100%">
+          <Parallax bgImage="/info.jpg" strength={500}>
+            <Box height={320} width="100%">
+              <Box
+                aria-label="cover-info"
+                width="100%"
+                height="100%"
+                px="50px"
+                display="flex"
+                alignItems="flex-start"
+                justifyContent="center"
+                flexDirection="column"
+              >
+                <Box aria-label="name" my={1}>
+                  <SCTypography
+                    color="secondary"
+                    fontSize={30}
+                    color="white"
+                    fontWeight={700}
+                    textTransform="uppercase"
+                    letterSpacing={12}
+                  >
+                    Boostiology
+                  </SCTypography>
+                </Box>
+                <Box aria-label="separator" my={1.5}>
+                  <img src="/lineSeparatorWhite.png" />
+                </Box>
+                <Box
+                  aria-label="boostiology"
+                  my={1.5}
+                  width={{
+                    xs: "100%",
+                    sm: "80%",
+                    md: "70%",
+                    lg: "60%",
+                    xl: "50%",
+                  }}
+                >
+                  <SCTypography
+                    aria-label="info"
+                    className={localClasses.title3}
+                    variant="h5"
+                    color="white"
+                    fontWeight={400}
+                    whiteSpace="pre-wrap"
+                  >
+                    Moments its musical age explain. But extremity sex now
+                    education concluded earnestly her continual. Oh furniture
+                    acuteness suspected continual ye something frankness. Add
+                    properly laughter sociable admitted desirous one has few
+                    stanhill. Opinion regular in perhaps another enjoyed no
+                    engaged he at.
                   </SCTypography>
                 </Box>
               </Box>

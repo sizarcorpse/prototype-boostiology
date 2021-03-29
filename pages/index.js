@@ -10,11 +10,18 @@
 
 // #components :
 import { Cover } from "components/Cover";
+import { Welcome } from "components/Welcome";
 // #validations :
 
 // #material-ui :
 import { ThemeDistributor } from "styles/ThemeDistributor";
-import { withStyles, makeStyles, Box } from "@material-ui/core";
+import {
+  withStyles,
+  makeStyles,
+  Box,
+  Grid,
+  CssBaseline,
+} from "@material-ui/core";
 
 // #other :
 
@@ -35,20 +42,11 @@ const HomePage = (props) => {
   const localClasses = useStyles();
 
   return (
-    <>
+    <Grid>
+      <CssBaseline />
       <Cover />
-      hi
-      <Box my={2}>
-        {[...new Array(120)]
-          .map(
-            () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-          )
-          .join("\n")}
-      </Box>
-    </>
+      <Welcome />
+    </Grid>
   );
 };
 export default withStyles(
