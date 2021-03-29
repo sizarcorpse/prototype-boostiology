@@ -1,65 +1,60 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+// #next :
+// import getConfig from 'next/config';
+// import {useRouter} from 'next/router';
+// import Link from 'next/link';
+// import Image from 'next/image';
+// import useSWR, { trigger, mutate } from 'swr';
+// #contexts :
+// import { useAuth } from 'contexts/AuthContext';
+// #hooks :
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+// #components :
+import { Cover } from "components/Cover";
+// #validations :
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+// #material-ui :
+import { ThemeDistributor } from "styles/ThemeDistributor";
+import { withStyles, makeStyles, Box } from "@material-ui/core";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+// #other :
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+export async function getStaticProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }
+
+const useStyles = makeStyles({
+  root: {},
+});
+
+const HomePage = (props) => {
+  const { classes } = props;
+  // const { currentUser } = useAuth();
+  // const { publicRuntimeConfig } = getConfig();
+  const localClasses = useStyles();
+
+  return (
+    <>
+      <Cover />
+      hi
+      <Box my={2}>
+        {[...new Array(120)]
+          .map(
+            () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
+          )
+          .join("\n")}
+      </Box>
+    </>
+  );
+};
+export default withStyles(
+  (theme) => ({
+    //   ...(theme)
+    ...ThemeDistributor(theme),
+  }),
+  { withTheme: true }
+)(HomePage);
